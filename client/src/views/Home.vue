@@ -19,7 +19,7 @@ export default {
 
     onMounted(async () => {
       const response = await getProducts(20);
-      console.log(response);
+      products.value = reponse;
     });
     return {
       products,
