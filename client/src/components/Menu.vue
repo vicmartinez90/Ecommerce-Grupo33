@@ -8,8 +8,12 @@
             src="../assets/logo.png"
             alt="Ecommerce"
           />
-          <p>Categorias</p>
         </router-link>
+        <template v-for="category in categories" :key="category.id">
+          <router-link class="item" :to="category.slug">
+            {{ category.title }}
+          </router-link>
+        </template>
       </div>
       <div class="right menu">
         <router-link class="item" to="/login" v-if="!token">
