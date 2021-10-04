@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .ui.menu.secondary {
-  background-color: #16202b;
+  background-color: #0e82fd;
   .item {
     color: #ffffff;
     &:hover {
@@ -38,7 +38,7 @@ export default {
   .menu.left {
     width: 50%;
     .ui.image {
-      width: 70px;
+      width: 150px;
     }
   }
   .menu.right {
