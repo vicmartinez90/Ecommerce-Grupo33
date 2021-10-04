@@ -50,7 +50,7 @@ import { useRouter } from 'vue-router';
 import * as Yup from 'yup';
 import BasicLayouts from '../layouts/BasicLayouts.vue';
 import { registerApi } from '../api/user';
-import { getTokenApi, setTokenApi } from '../api/token';
+import { getTokenApi } from '../api/token';
 
 export default {
   name: 'Register',
