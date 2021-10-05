@@ -1,7 +1,14 @@
 <template>
   <BasicLayouts>
-    <h2>Estamos en la categoria</h2>
-    {{ products }}
+    <div class="ui grid">
+      <div
+        class="sixten wide mobile eight wide tablet four wide computer column"
+        v-for="product in products"
+        :key="product.id"
+      >
+        <Product :product="product" />
+      </div>
+    </div>
   </BasicLayouts>
 </template>
 
@@ -9,12 +16,14 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import BasicLayouts from '../layouts/BasicLayouts.vue';
+import Product from '../components/Product.vue';
 import { getCategoriesApi, getProductsCategory } from '../api/products';
 
 export default {
   name: 'Category',
   components: {
     BasicLayouts,
+    Product,
   },
   watch: {
     $route(to, from) {
