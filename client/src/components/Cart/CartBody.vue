@@ -12,11 +12,19 @@
           <p>{{ product.price }} $</p>
 
           <div class="quantity">
-            <button class="ui button primary" size="large">
+            <button
+              class="ui button primary"
+              size="large"
+              @click="increaseProductsCart(product.id)"
+            >
               +
             </button>
             <p>{{ product.quantity }}</p>
-            <button class="ui button primary" size="large">
+            <button
+              class="ui button primary"
+              size="large"
+              @click="decreaseProductsCart(product.id)"
+            >
               -
             </button>
           </div>
@@ -27,14 +35,24 @@
 </template>
 
 <script>
+import { addProductCartApi } from '../../api/cart';
 import { API_URL } from '../../utils/constants';
 export default {
   name: 'CartBody',
   props: {
     products: Array,
+    realoadCartFn: Function,
   },
-  setup() {
-    return { API_URL };
+  setup(props) {
+    const increaseProductsCart = (id) => {
+      addProductCartApi(id);
+      props.realoadCartFn();
+    };
+
+    return {
+      increaseProductsCart,
+      API_URL,
+    };
   },
 };
 </script>
