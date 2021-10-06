@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { addProductCartApi } from '../../api/cart';
+import { addProductCartApi, deleteProductCartApi } from '../../api/cart';
 import { API_URL } from '../../utils/constants';
 export default {
   name: 'CartBody',
@@ -49,9 +49,15 @@ export default {
       props.realoadCartFn();
     };
 
+    const decreaseProductsCart = (id) => {
+      deleteProductCartApi(id);
+      props.realoadCartFn();
+    };
+
     return {
-      increaseProductsCart,
       API_URL,
+      increaseProductsCart,
+      decreaseProductsCart,
     };
   },
 };
