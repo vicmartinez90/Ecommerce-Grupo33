@@ -26,6 +26,7 @@
         >
           Entrar
         </button>
+        <!-- <button class="ui button">Follow</button> ENSAYO SEMANTIC-->
       </form>
       <router-link to="/register"> Crear una cuenta </router-link>
     </div>
@@ -33,14 +34,14 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import * as Yup from 'yup';
-import BasicLayouts from '../layouts/BasicLayouts.vue';
-import { loginApi } from '../api/user';
-import { setTokenApi, getTokenApi } from '../api/token';
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import * as Yup from "yup";
+import BasicLayouts from "../layouts/BasicLayouts.vue";
+import { loginApi } from "../api/user";
+import { setTokenApi, getTokenApi } from "../api/token";
 export default {
-  name: 'Login',
+  name: "Login",
   components: {
     BasicLayouts,
   },
@@ -53,7 +54,7 @@ export default {
     const token = getTokenApi();
 
     onMounted(() => {
-      if (token) return router.push('/');
+      if (token) return router.push("/");
     });
 
     const schemaForm = Yup.object().shape({
@@ -68,9 +69,9 @@ export default {
         await schemaForm.validate(formData.value, { abortEarly: false });
         try {
           const reponse = await loginApi(formData.value);
-          if (!reponse?.jwt) throw 'El usuario o contraseña no son validos';
+          if (!reponse?.jwt) throw "El usuario o contraseña no son validos";
           setTokenApi(reponse.jwt);
-          router.push('/');
+          router.push("/");
         } catch (error) {
           console.log(error);
         }

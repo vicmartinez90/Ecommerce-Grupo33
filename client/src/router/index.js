@@ -4,6 +4,11 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Category from "../views/Category.vue"
 import Cart from "../views/Cart.vue"
+import Story from "../views/Story.vue"
+import OthersProducts from "../views/OthersProducts.vue"
+import Process from "../views/Process.vue"
+import About from "../views/About.vue"
+
 
 const routes = [{
         path: '/',
@@ -25,6 +30,27 @@ const routes = [{
         path: '/cart',
         name: 'Cart',
         component: Cart
+    }
+    ,
+    {
+        path: '/about',
+        name: 'About',
+        component: About
+    }
+    , {
+        path: '/process',
+        name: 'Process',
+        component: Process
+    }
+    , {
+        path: '/othersproducts',
+        name: 'OthersProducts',
+        component: OthersProducts
+    }
+    , {
+        path: '/story',
+        name: 'Story',
+        component: Story
     }
     ,
     {

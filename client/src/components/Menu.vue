@@ -5,7 +5,7 @@
         <router-link class="item" to="/">
           <img
             class="ui small image"
-            src="../assets/logo.png"
+            src="../assets/Logo-panela.New.png"
             alt="Ecommerce"
           />
         </router-link>
@@ -21,7 +21,18 @@
         </router-link>
 
         <template v-if="token">
-          <router-link class="item" to="/orders">Pedidos</router-link>
+          <div class="ui link list">
+            <a class="item"
+              ><router-link to="/abount" class="ite">Conocenos</router-link></a
+            >
+            <a class="item"
+              ><router-link to="/Story">Algo de historia</router-link></a
+            >
+            <a class="item"><router-link to="/abount">Procesos</router-link></a>
+            <a class="item"
+              ><router-link to="/abount">Otros productos</router-link></a
+            >
+          </div>
           <span class="ui item cart">
             <i class="shopping cart icon" @click="openCart"></i>
           </span>
@@ -35,13 +46,13 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import { useStore } from 'vuex';
-import { getTokenApi, deleteTokenApi } from '../api/token';
-import { getCategoriesApi } from '../api/category';
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+import { getTokenApi, deleteTokenApi } from "../api/token";
+import { getCategoriesApi } from "../api/category";
 
 export default {
-  name: 'menu',
+  name: "menu",
 
   setup() {
     let categories = ref(null);
@@ -55,11 +66,11 @@ export default {
 
     const logout = () => {
       deleteTokenApi();
-      location.replace('/');
+      location.replace("/");
     };
 
     const openCart = () => {
-      store.commit('setShowCart', true);
+      store.commit("setShowCart", true);
     };
 
     return {
@@ -74,9 +85,10 @@ export default {
 
 <style lang="scss" scoped>
 .ui.menu.secondary {
-  background-image: url('../assets/header-img.jpg');
+  background-image: url("../assets/header-img.jpg");
   .item {
     color: #ffffff;
+    font-size: 14px;
     &:hover {
       color: #1fa1f1;
     }
@@ -84,7 +96,8 @@ export default {
   .menu.left {
     width: 50%;
     .ui.image {
-      width: 150px;
+      background-repeat: no-repeat;
+      width: 210px;
     }
   }
   .menu.right {
@@ -94,6 +107,14 @@ export default {
     .cart {
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+  .ui.link.list {
+    .ite {
+      color: #ffffff;
+      &:hover {
+        color: #1fa1f1;
       }
     }
   }

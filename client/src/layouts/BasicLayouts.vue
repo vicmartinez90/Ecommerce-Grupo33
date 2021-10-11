@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import Menu from '../components/Menu.vue';
-import Cart from '../components/Cart/Cart.vue';
+import Menu from "../components/Menu.vue";
+import Cart from "../components/Cart/Cart.vue";
 
 export default {
-  name: 'BasicLayouts',
+  name: "BasicLayouts",
   components: {
     Menu,
     Cart,
